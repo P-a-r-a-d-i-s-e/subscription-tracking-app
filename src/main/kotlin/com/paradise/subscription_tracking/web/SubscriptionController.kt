@@ -65,6 +65,13 @@ class SubscriptionController(private val service: SubscriptionService) {
         return ResponseEntity.noContent().build()
     }
 
+    @PatchMapping("/{id}/resume")
+    @Operation(summary = "Возобновление подписки")
+    fun resume(@PathVariable id: UUID): ResponseEntity<Unit> {
+        service.resumeSubscription(id)
+        return ResponseEntity.noContent().build()
+    }
+
     @GetMapping("/{id}")
     @Operation(summary = "Просмотр подписки по id")
     fun findById(@PathVariable id: UUID): ResponseEntity<SubscriptionResponse> {

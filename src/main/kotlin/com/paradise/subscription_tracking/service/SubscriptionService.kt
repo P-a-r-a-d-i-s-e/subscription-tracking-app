@@ -75,6 +75,13 @@ class SubscriptionService(
         subscription.suspend()
     }
 
+    @Transactional
+    fun resumeSubscription(id: UUID) {
+        val subscription = repository.findByIdOrNull(id)
+            ?: throw NoSuchElementException("Subscription with ID $id not found")
+        subscription.resume()
+    }
+
     @Transactional(readOnly = true)
     fun findSubscriptionById(id: UUID): SubscriptionResponse {
         val subscription = repository.findByIdOrNull(id)
