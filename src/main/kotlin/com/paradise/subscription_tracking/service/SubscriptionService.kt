@@ -67,4 +67,19 @@ class SubscriptionService(
             ?: throw NoSuchElementException("Subscription with ID $id not found")
         subscription.cancel()
     }
+
+    @Transactional
+    fun suspendSubscription(id: UUID) {
+        val subscription = repository.findByIdOrNull(id)
+            ?: throw NoSuchElementException("Subscription with ID $id not found")
+        subscription.suspend()
+    }
+
+    @Transactional(readOnly = true)
+    fun findSubscriptionById(id: UUID): SubscriptionResponse {
+        val subscription = repository.findByIdOrNull(id)
+            ?: throw NoSuchElementException("Subscription with ID $id not found")
+
+        return subscription.toResponse();
+    }
 }

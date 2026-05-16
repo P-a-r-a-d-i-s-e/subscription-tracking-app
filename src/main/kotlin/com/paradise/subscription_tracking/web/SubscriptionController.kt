@@ -57,4 +57,17 @@ class SubscriptionController(private val service: SubscriptionService) {
         service.cancelSubscription(id)
         return ResponseEntity.noContent().build()
     }
+
+    @PatchMapping("/{id}/suspend")
+    @Operation(summary = "Приостановка подписки")
+    fun suspend(@PathVariable id: UUID): ResponseEntity<Unit> {
+        service.suspendSubscription(id)
+        return ResponseEntity.noContent().build()
+    }
+
+    @GetMapping("/{id}")
+    @Operation(summary = "Просмотр подписки по id")
+    fun findById(@PathVariable id: UUID): ResponseEntity<SubscriptionResponse> {
+        return ResponseEntity.ok(service.findSubscriptionById(id))
+    }
 }
