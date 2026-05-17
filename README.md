@@ -17,7 +17,7 @@
 * **Язык:** Kotlin 2.3.21
 * **Фреймворк:** Spring Boot 3.5.14 (Web, Data JPA, Validation)
 * **База данных:** PostgreSQL 17.5
-* **Окружение:** Alpine 3.22.4, OpenJDK 25, Git
+* **Окружение:** Alpine 3.22, Temurin JDK 25
 * **Тестирование:** JUnit 5, MockMvc, Spring Test, Testcontainers (PostgreSQL)
 * **Документация:** Springdoc OpenAPI / Swagger v2.8.17
 
