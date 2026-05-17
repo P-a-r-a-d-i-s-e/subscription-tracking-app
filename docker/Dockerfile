@@ -4,6 +4,7 @@ RUN apk add --no-cache git
 
 RUN git clone https://github.com/P-a-r-a-d-i-s-e/subscription-tracking-app.git
 WORKDIR subscription-tracking-app
+RUN chmod +x gradlew
 RUN ./gradlew bootJar --no-daemon
 
 FROM eclipse-temurin:25-jdk-alpine-3.22 AS result

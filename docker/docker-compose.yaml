@@ -19,11 +19,16 @@ services:
     image: subscription-tracking-webapp
     ports:
       - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://database:5432/postgres
+      - SPRING_DATASOURCE_PASSWORD=pass
     build:
       context: .
       dockerfile: Dockerfile
     networks:
       - backend
+    depends_on:
+      - database
 
 networks:
   backend:
