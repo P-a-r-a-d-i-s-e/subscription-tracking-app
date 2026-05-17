@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Import
 @SpringBootTest
 class SubscriptionTrackingApplicationTests {
 
-	@Test
-	fun contextLoads() {
-	}
+    @Test
+    fun contextLoads() {
+    }
 
 }
